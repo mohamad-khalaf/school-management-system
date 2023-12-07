@@ -1,0 +1,113 @@
+/**************************************
+======================================  
+        Table Of Contents
+======================================
+1. TYPOGRAPHY
+2. BOOTSTRAP OVERWRITE
+    2.1 Card
+**************************************/
+body {
+    text-align: right;
+}
+/*=======================================================================
+[01] HEADER
+=========================================================================*/
+.navbar .dropdown-menu-right { /* lang menu */
+    right: auto;
+    left: 0;
+}
+
+.header-main-menu .navbar-nav .header-admin .navbar-nav-link:after {
+    right: 47px;
+}
+.header-main-menu .navbar-nav .header-admin .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+.header-main-menu .navbar-nav .header-admin .dropdown-menu .item-header:after {
+    left: auto;
+    right: 12px;
+}
+
+.header-main-menu .navbar-nav .header-message .dropdown-menu .item-header:after {
+    right: auto;
+    left: 4px;
+}
+@media only screen and (max-width: 767px) {
+    .header-main-menu .navbar-nav .header-message .navbar-nav-link span {
+        right: auto;
+        left: 0px
+    }
+}
+
+.header-main-menu .navbar-nav .navbar-item {
+    margin-right: 0px;
+    margin-left: 28px;
+}
+
+.header-main-menu .navbar-nav .header-language .navbar-nav-link:after {
+    right: auto;
+    left: -5px;
+}
+
+.header-main-menu .navbar-nav .header-notification .dropdown-menu .item-header:after {
+    right: auto;
+    left: 4px;
+ }
+
+@media only screen and (max-width: 767px) {
+    .header-main-menu .navbar-nav .header-notification .navbar-nav-link span  {
+        right: auto;
+        left: 0px
+    }
+}
+.header-main-menu .navbar-nav .header-admin .dropdown-menu .item-content .settings-list li a {
+    text-align: right;
+}
+/*=======================================================================
+[01] SIDEBAR
+=========================================================================*/
+.sidebar-collapsed-mobile .sidebar-main {
+    right: 0;
+}
+.sidebar-menu-one .sidebar-menu-content .nav-sidebar-menu .sidebar-nav-item > .nav-link:after {
+    -webkit-transform: translateY(-50%) rotate(180deg);
+    -ms-transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%) rotate(180deg);
+    right: auto;
+    left: 22px;
+}
+.sidebar-menu-one .sidebar-menu-content .nav-sidebar-menu > .nav-item .sub-group-menu > .nav-item .nav-link i {
+    margin-right: 0px;
+    margin-left: 10px;
+    -webkit-transform:   rotate(180deg);
+    -ms-transform:       rotate(180deg);
+    transform:           rotate(180deg);
+}
+/*=======================================================================
+[01] HOME
+=========================================================================*/
+.breadcrumbs-area ul li {
+    padding-left: 10px;
+    margin-left: 15px;
+}
+.breadcrumbs-area ul li:before {
+    right: auto;
+    left: -10px;
+    -webkit-transform: translateY(-50%) rotate(180deg);
+    -ms-transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%) rotate(180deg);
+}
+/*=======================================================================
+[01] 
+=========================================================================*/
+#scrollUp {
+    left: 20px;
+    right: auto;
+}
+
+
+.new-added-form .form-group i {
+    right: auto;
+    left: 34px;
+}

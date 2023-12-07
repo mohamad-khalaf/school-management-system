@@ -1,0 +1,41 @@
+account-settings.php
+add-book.php
+add-class.php
+add-expense.php
+add-parents.php
+add-student.php
+add-teacher.php
+all-book.php
+all-class.php
+all-expense.php
+    all-fees.php لم أفهم هذا الصفحة هي نفس كل المصاريف
+all-parents.php
+all-student.php
+all-subject.php
+all-teacher.php
+
+
+    class-routine.php
+exam-grade.php
+forget.php
+hostel.php
+
+
+    index.php
+    index3.php
+    index4.php
+    index5.php
+map.php لا تحتاج الى عمل
+messaging.php
+notice-board.php
+parents-details.php
+    student-attendance.php
+students-details.php
+    student-promotion.php
+    teacher-details.php
+    teacher-payment.php
+transport.php
+
+
+MY PROFILE 
+    teacher-details.php

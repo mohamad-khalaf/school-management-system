@@ -1,0 +1,97 @@
+users permeations 
+--ADMIN     => 1
+--TEACHER   => 2
+--PARENT    => 3
+--STUDENT   => 4
+
+Page permeations
+_1 DASHBOARD
+-- index.php    => 1
+-- index5.php   => 2
+-- index4.php   => 3
+-- index3.php   => 4
+
+_2 STUDENTS 
+--all-student.php       => 1
+--add-student.php       => 1
+--student-promotion.php => 1
+--student-details.php   => 4
+
+_3 TEACHER
+--all-teacher.php       => 1
+--add-teacher.php       => 1
+--teacher-payment.php   => 1
+--teacher-details.php   => 2
+
+_4 PARENTS 
+--all-parents.php       => 1
+--add-parents.php       => 1
+--parents-details.php   => 3
+
+_5 LIBRARY
+--all-book.php          => 1
+--add-book.php          => 1
+
+_6 ACCOUNT
+--all-fees.php          => 1 كل الرسوم تحيصيل
+--all-expense.php       => 1
+--add-expense.php       => 1
+
+_7 CLASSES
+--all-class.php         => 1
+--add-class.php         => 1
+
+_8 SUBJECT
+--all-subject.php       => 1
+
+_9 CLASS_ROUTINE
+-- class-routine.php
+
+_10 ATTENDANCE
+--student-attendance.php
+
+_11 EXAMS
+--exam-schedule.php     => 1, 2
+--exam-grade.php        => 1, 2
+
+_11 transport
+--transport.php         => 1
+
+_11 HOSTEL
+--hostel.php         => 1
+
+_11 NOTES 
+--notice-board.php         => 1, 2
+
+_12 NOTES 
+--notification-alert.php    => 1
+--button.php                => 1
+--grid.php                  => 1
+--modal.php                 => 1
+--progress-bar.php          => 1
+--ui-tab.php                => 1
+--ui-widget.php             => 1
+
+_13 MAP 
+--map.php                   => 1
+
+_14 ACCOUNT  
+--account-settings.php      => 1
+
+
+
+
+
+
+Version libs
+--bootstrap 4.1.3
+
+RELATIONSHIP BETWEEN TABLES
+--STUDENT
+--- num id student => is username to login (pass=> '123123')
+--TEACHER 
+--PARENT 
+
+IMPORTANT NOTES
+-- __edit_future__  => is highlight to future editing and easy search 
+-- uploaded img student must be unique => i must put patten 
