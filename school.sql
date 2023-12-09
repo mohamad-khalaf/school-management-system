@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2023 at 05:00 PM
+-- Generation Time: Dec 09, 2023 at 09:12 AM
 -- Server version: 8.0.33
 -- PHP Version: 8.2.4
 
@@ -63,6 +63,32 @@ CREATE TABLE `classes` (
   `phone` bigint NOT NULL,
   `email` char(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exams`
+--
+
+CREATE TABLE `exams` (
+  `id` int NOT NULL,
+  `exam_name` char(255) NOT NULL,
+  `subject` enum('english','chemistry') NOT NULL,
+  `date` date NOT NULL,
+  `student_id` int NOT NULL,
+  `grade` tinytext NOT NULL,
+  `percent` tinyint NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `exams`
+--
+
+INSERT INTO `exams` (`id`, `exam_name`, `subject`, `date`, `student_id`, `grade`, `percent`) VALUES
+(1, 'امتحان تدريبي', 'english', '2023-05-08', 1, '', 0),
+(2, 'امتحان الرياضيات', 'chemistry', '2023-05-01', 1, '', 0),
+(3, 'امتحان العلوم', 'chemistry', '2023-05-10', 1, '', 0),
+(4, 'امتحان الصبر', 'chemistry', '2023-05-08', 1, '', 0);
 
 -- --------------------------------------------------------
 
@@ -141,6 +167,54 @@ INSERT INTO `hostel` (`id`, `hostel_name`, `room_num`, `room_type`, `number_bed`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `messaging`
+--
+
+CREATE TABLE `messaging` (
+  `id` int NOT NULL,
+  `title` char(255) NOT NULL,
+  `recipient` char(255) NOT NULL,
+  `sender` char(255) NOT NULL,
+  `message` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `messaging`
+--
+
+INSERT INTO `messaging` (`id`, `title`, `recipient`, `sender`, `message`) VALUES
+(1, 'MOHAMD', 'MOHAMD@GMAIL.CO,', 'mohamad admin', 'MASDOF VMS CVAS VM SL VSOSDJOSMASDOF VMS CVAS VM SL VSOSDJOS MASDOF VMS CVAS VM SL VSOSDJOS MASDOF VMS CVAS VM SL VSOSDJOS MASDOF VMS CVAS VM SL VSOSDJOS'),
+(2, 'FGSEG', 'ERGERG', 'mohamad admin', 'ERGFEREF FEF'),
+(3, 'KJHIK', 'KHI', 'mohamad admin', 'GAERFA');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notice`
+--
+
+CREATE TABLE `notice` (
+  `id` int NOT NULL,
+  `title` char(255) NOT NULL,
+  `details` varchar(255) NOT NULL,
+  `creator` char(255) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `notice`
+--
+
+INSERT INTO `notice` (`id`, `title`, `details`, `creator`, `date`) VALUES
+(1, '', '', '', '0000-00-00'),
+(2, 'fgdf', 'sdfsdf', 'asd da', '2023-05-08'),
+(3, 'main title', 'main details', 'moahamd', '2023-05-14'),
+(4, 'title hello', 'details of hello', 'moahamd - hello', '2023-05-01'),
+(5, 'مبارح', 'شسيب', 'شسيب', '2023-05-04');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `parents`
 --
 
@@ -208,6 +282,23 @@ INSERT INTO `password_reset` (`id`, `member`, `password_recovery_token`, `expire
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `routine`
+--
+
+CREATE TABLE `routine` (
+  `id` int NOT NULL,
+  `friday` char(255) NOT NULL,
+  `sunday` char(255) NOT NULL,
+  `monday` char(255) NOT NULL,
+  `saturday` char(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `tuesday` char(255) NOT NULL,
+  `wednesday` char(255) NOT NULL,
+  `thursday` char(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
@@ -240,7 +331,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `ar_name`, `en_name`, `gender`, `birthday`, `place_birthday`, `blood`, `email`, `id_number`, `id_academy`, `phone`, `class`, `season`, `prev_school`, `join_date`, `address`, `parent_name`, `parent_id_number`, `parent_phone`, `mother_name`, `bio`) VALUES
-(0, 'محمد خلف', 'mohamad khalaf', 'male', '2023-05-18', 'alleppo', 'b-', 'mohamaf@gmaol.com', 123544, 234234234123443, 234234234123443, 'sdfsfcf', 'sdfff', 'prev school', '2023-05-03', 'address', 'khalaf', 234234234234, 963999477343, 'dffsd', 'لا يوج د حالتي تعبانة كثير ');
+(1, 'محمد خلف', 'mohamad khalaf', 'male', '2023-05-18', 'alleppo', 'b-', 'mohamaf@gmaol.com', 123544, 234234234123443, 234234234123443, 'sdfsfcf', 'sdfff', 'prev school', '2023-05-03', 'address', 'khalaf', 234234234234, 963999477343, 'dffsd', 'لا يوج د حالتي تعبانة كثير ');
 
 -- --------------------------------------------------------
 
@@ -250,22 +341,18 @@ INSERT INTO `students` (`id`, `ar_name`, `en_name`, `gender`, `birthday`, `place
 
 CREATE TABLE `subjects` (
   `id` int NOT NULL,
-  `subject_name` char(255) NOT NULL,
-  `subject_type` char(255) NOT NULL,
-  `class` char(255) NOT NULL,
-  `code` int NOT NULL,
-  `date` date NOT NULL
+  `subject_name` char(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `subjects`
 --
 
-INSERT INTO `subjects` (`id`, `subject_name`, `subject_type`, `class`, `code`, `date`) VALUES
-(1, '', '', '', 0, '0000-00-00'),
-(2, '', '2', '2', 2, '0000-00-00'),
-(3, 'sdfsd', '3', '1', 2, '0000-00-00'),
-(4, 'sdfsd', '2', '2', 2, '2023-05-16');
+INSERT INTO `subjects` (`id`, `subject_name`) VALUES
+(1, ''),
+(2, ''),
+(3, 'sdfsd'),
+(4, 'sdfsd');
 
 -- --------------------------------------------------------
 
@@ -281,8 +368,8 @@ CREATE TABLE `teachers` (
   `blood_group` enum('a+','a-','b+','b-','o+','o-') NOT NULL,
   `religion` char(255) NOT NULL,
   `email` char(255) NOT NULL,
-  `class` char(255) NOT NULL,
-  `section` char(255) NOT NULL,
+  `class` char(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT 'للحذف مستقبلا لانها غير منظقية ',
+  `section` char(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT 'للحذف مستقبلا لانها غير منظقية ',
   `address` varchar(255) NOT NULL,
   `phone` bigint NOT NULL,
   `bio` varchar(255) NOT NULL
@@ -294,6 +381,31 @@ CREATE TABLE `teachers` (
 
 INSERT INTO `teachers` (`id`, `name`, `gender`, `birthday`, `blood_group`, `religion`, `email`, `class`, `section`, `address`, `phone`, `bio`) VALUES
 (1, 'mohamad', 'femaile', '2023-05-16', 'a-', 'muslim', 'mohamad@gmaol.com', 'ش', 'sss', 'jordan ammaan', 9627896336141, 'ماعندي حالة لان حالتي حالة ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transport`
+--
+
+CREATE TABLE `transport` (
+  `id` int NOT NULL,
+  `path` char(255) NOT NULL,
+  `vehicle_number` bigint NOT NULL,
+  `driver_name` char(255) NOT NULL,
+  `licence_number` bigint NOT NULL,
+  `driver_number` bigint NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `transport`
+--
+
+INSERT INTO `transport` (`id`, `path`, `vehicle_number`, `driver_name`, `licence_number`, `driver_number`) VALUES
+(1, 'طريق الجامعة', 234234234, 'اسم السائق الأول', 234234234, 23423434234),
+(2, 'الطريق الصحراوي', 2566856, 'السائق احمد الطويل', 23434523452, 0),
+(3, 'الطريق الصحراوي', 2566856, 'السائق احمد الطويل', 23434523452, 0),
+(4, 'الطريق الصحراوي الجديد', 22255588, 'ايوح حميد', 3423234234234, 0);
 
 -- --------------------------------------------------------
 
@@ -325,7 +437,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `group_id`, `gender`, `father_name`, `mother_name`, `birthday`, `religon`, `joing_date`, `email`, `id_number`, `phone`, `address`) VALUES
 (0, 'local', '939bb46a04c3640c8c427e92b1b557e882e2d2a0', 'mohamad alkhalf albarho', '2', 'male', 'dfgdf', 'dfgdfgd', '2023-05-22', '3', '2023-05-03', 'mohamadalkhlaf11@gmail.com', 1234567890, 786336414, 'Abdul Rahman bin Samra'),
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'mohamad admin', '1', '0', '', '', '0000-00-00', '', '0000-00-00', '', 0, 0, '');
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'mohamad admin', '1', '0', '', '', '0000-00-00', '', '0000-00-00', '', 0, 0, ''),
+(3, 'parent', 'd8fd39d0bbdd2dcf322d8b11390a4c5825b11495', 'اسمي الكامل الأب', '3', 'female', 'سيشسي', 'شي', '2023-05-03', 'عمان', '2023-05-03', 'mohamadalkhlaf1@gmail.com\r\n', 123544, 9627896336414, 'الاردن عمان صويلح '),
+(4, 'student', '204036a1ef6e7360e536300ea78c6aeb4a9333dd', 'انا الطالب المجد', '4', 'female', 'خلف', 'خلف', '2023-05-16', 'مسلم و الحمد لله', '2023-05-22', 'ايميل اي كلام', 123544, 9627896336141, 'عمان صويلح الاردن شارع عبد الرحمن '),
+(5, 'teacher', '4a82cb6db537ef6c5b53d144854e146de79502e8', 'عصام صلاحية', '2', 'female', 'ابو عصام', 'حليمة', '2023-05-29', 'مسلم', '2023-02-14', 'asssam@gmail.com', 234234234, 2342334, 'tukey');
 
 --
 -- Indexes for dumped tables
@@ -343,6 +458,13 @@ ALTER TABLE `books`
 --
 ALTER TABLE `classes`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `exams`
+--
+ALTER TABLE `exams`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `student_exam` (`student_id`);
 
 --
 -- Indexes for table `exam_grade`
@@ -363,6 +485,18 @@ ALTER TABLE `hostel`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `messaging`
+--
+ALTER TABLE `messaging`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notice`
+--
+ALTER TABLE `notice`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `parents`
 --
 ALTER TABLE `parents`
@@ -375,6 +509,18 @@ ALTER TABLE `password_reset`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `routine`
+--
+ALTER TABLE `routine`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
@@ -384,6 +530,12 @@ ALTER TABLE `subjects`
 -- Indexes for table `teachers`
 --
 ALTER TABLE `teachers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `transport`
+--
+ALTER TABLE `transport`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -409,6 +561,12 @@ ALTER TABLE `classes`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `exams`
+--
+ALTER TABLE `exams`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `exam_grade`
 --
 ALTER TABLE `exam_grade`
@@ -427,6 +585,18 @@ ALTER TABLE `hostel`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `messaging`
+--
+ALTER TABLE `messaging`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `notice`
+--
+ALTER TABLE `notice`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
@@ -439,6 +609,18 @@ ALTER TABLE `password_reset`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
+-- AUTO_INCREMENT for table `routine`
+--
+ALTER TABLE `routine`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
@@ -449,6 +631,22 @@ ALTER TABLE `subjects`
 --
 ALTER TABLE `teachers`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `transport`
+--
+ALTER TABLE `transport`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `exams`
+--
+ALTER TABLE `exams`
+  ADD CONSTRAINT `student_exam` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
